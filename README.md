@@ -34,6 +34,10 @@ To address these questions, we approach each metric with a dual-model strategy, 
   ```bash
   git clone https://github.com/jeancheri/EDPredictiveEfficiency.git
   cd EDPredictiveEfficiency
+  mkdir -p data/{features,processed,raw,test,train,validation}
+  
+  Then download the raw data located and save it into the raw folder located inside data folder
+  
   ```
   
   ### Install Poetry (if not already installed):
