@@ -115,7 +115,7 @@ To address these questions, we approach each metric with a dual-model strategy, 
   
   ### VI - Run Notebook with the Pre-configured Kernel
   
-  If the project includes Jupyter notebooks, you can start Jupyter Notebook or JupyterLab or Vscode:
+  For executing code, we recommend using Jupyter Notebook, JupyterLab, or VSCode or any similar tools, as they offer comprehensive support for Jupyter notebooks.
   
   **for Jupyter Notebook:**
   
