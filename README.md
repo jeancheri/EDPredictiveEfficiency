@@ -182,7 +182,7 @@ To address these questions, we approach each metric with a dual-model strategy, 
   
   ## Contributing
   
-  We encourage contributions to the `EDPredictiveEfficiency` project. Your contributions can enhance various aspects of the project, such as predictive models, data preprocessing, and insights into emergency department operations. Please take a look at our contribution guidelines for more details.
+  We encourage contributions to the `EDPredictiveEfficiency` project. Your contributions can enhance various aspects of the project, such as predictive models, data preprocessing, and insights into emergency department operations.
   
   ## License
   
