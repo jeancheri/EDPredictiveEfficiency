@@ -17,8 +17,8 @@ Get started with our project
 
 First clone the repository from GitHub:
 ```bash
-git clone https://github.com/jeancheri/EDOptimize-Predictive-Analytics-for-Emergency-Department-Efficiency.git
-cd EDOptimize-Predictive-Analytics-for-Emergency-Department-Efficiency
+git clone https://github.com/jeancheri/EDPredictiveEfficiency.git
+cd EDPredictiveEfficiency
 
 
 Setting Up the Environment
@@ -33,17 +33,16 @@ Download and Install Poetry:
    1)Open PowerShell as Administrator and run:
       (Invoke-WebRequest -Uri https://install.python-poetry.org -UseBasicParsing).Content | python -
 
-
    2)Activate Poetry:
 
      Navigate to the project directory and activate Poetry to manage dependencies:
 
-      cd path\\to\\EDOptimize-Predictive-Analytics-for-Emergency-Department-Efficiency
-      poetry shell
-
-   3)Create a Kernel with Poetry for Jupyter and VSCode:
-
-      poetry run python -m ipykernel install --user --name="EDOptimize"
+      cd path\\to\\EDPredictiveEfficiency
+         poetry init
+         poetry shell
+      Create a Kernel with Poetry for Jupyter and VSCode:
+         poetry add ipykernel
+         poetry run python -m ipykernel install --user --name="EDPredictiveEfficiency"
 
 B)Linux/MacOS
    1)Download and Install Poetry:
@@ -56,31 +55,34 @@ B)Linux/MacOS
 
       Navigate to the project directory and activate the Poetry environment:
 
-      cd /path/to/EDOptimize-Predictive-Analytics-for-Emergency-Department-Efficiency
-      poetry shell
-
-   4)Create a Kernel with Poetry for Jupyter and VSCode:
-      poetry add ipykernel
-      poetry run python -m ipykernel install --user --name="EDOptimize"
+      cd /path/to/EDPredictiveEfficiency
+         poetry init
+         poetry shell
+    Create a Kernel with Poetry for Jupyter and VSCode:
+         poetry add ipykernel
+         poetry run python -m ipykernel install --user --name="EDPredictiveEfficiency"
 
 
 II)If Poetry is Already Installed
    Activate Poetry:
 
    A)Windows:
-
-      cd path\\to\\EDOptimize-Predictive-Analytics-for-Emergency-Department-Efficiency
-      poetry shell
+    In the terminal
+         cd/path/to/EDPredictiveEfficiency
+         poetry init
+         poetry shell
+         poetry add ipykernel
+         poetry run python -m ipykernel install --user --name="EDPredictiveEfficiency"
 
    B)Linux/MacOS:
    In the terminal
-   1) cd /path/to/EDOptimize-Predictive-Analytics-for-Emergency-Department-Efficiency
-      poetry shell
-
-III) Create a Kernel with Poetry for Jupyter and VSCode:
-      poetry add ipykernel
-      poetry run python -m ipykernel install --user --name="EDOptimize"
-      
+         cd /path/to/EDPredictiveEfficiency
+         poetry init
+         poetry shell
+      Create a Kernel with Poetry for Jupyter and VSCode:
+         poetry add ipykernel
+         poetry run python -m ipykernel install --user --name="EDPredictiveEfficiency"
+         
 
 
 IV)Adding Libraries with Poetry
@@ -111,17 +113,17 @@ Follow these steps to run the predictive models for estimating ED wait times.
 
 ### Step 1: Model Selection via Cross-Validation
 1. Navigate to the cloned project directory.
-2. Open the Jupyter notebook located at `/path_where_you_cloned_the_project/EDOptimize-Predictive-Analytics-for-Emergency-Department-Efficiency/scripts/model_training/waittime_regression.ipynb`.
+2. Open the Jupyter notebook located at `/path_where_you_cloned_the_project/EDPredictiveEfficiency/scripts/model_training/waittime_regression.ipynb`.
 3. Run the notebook. This step involves the use of cross-validation to select the best predictive model for estimating wait times.
 
 ### Step 2: Model Training with Hyperparameter Tuning
 1. After selecting the best model, proceed to hyperparameter tuning to optimize its performance.
-2. Open `/path_where_you_cloned_the_project/EDOptimize-Predictive-Analytics-for-Emergency-Department-Efficiency/scripts/model_hyperparameter_tuning/waittime_regression_hyperparameter_tuning.ipynb`.
+2. Open `/path_where_you_cloned_the_project/EDPredictiveEfficiency/scripts/model_hyperparameter_tuning/waittime_regression_hyperparameter_tuning.ipynb`.
 3. Execute the notebook to train the model with the best set of hyperparameters.
 
 ### Step 3: Model Evaluation
 1. Finally, evaluate the performance of the trained model.
-2. Navigate to `/path_where_you_cloned_the_project/EDOptimize-Predictive-Analytics-for-Emergency-Department-Efficiency/scripts/model_evaluation/waittime_regression_final_evaluation.ipynb`.
+2. Navigate to `/path_where_you_cloned_the_project/EDPredictiveEfficiency/scripts/model_evaluation/waittime_regression_final_evaluation.ipynb`.
 3. This notebook provides an evaluation of the model's performance on the test dataset. It compares the results using all available features against using the top 60 most important features determined through feature selection techniques.
 
 ## Contributing
