@@ -29,14 +29,49 @@ To address these questions, we approach each metric with a dual-model strategy, 
   
   ## Initial Setup
   
-  ### Clone the Repository:
+  ### I - Clone the Repository:
+  
+  To clone the project repository, you'll need to identify the path where you want the project to reside on your local machine. Here's how to do it:
+  
+  1. Open your command prompt or terminal.
+  
+  2. Navigate to the directory where you want to clone the project using the `cd` command. For example:
+     ```bash
+     cd path/to/your/desired/directory
+     ```
+     
+  3. Once you are in your chosen directory, run the git clone command with the project's repository URL.
   
   ```bash
   git clone https://github.com/jeancheri/EDPredictiveEfficiency.git
   cd EDPredictiveEfficiency
   ```
   
-  ### Install Poetry (if not already installed):
+  Remember to take note of this path or bookmark it in your terminal for quick access, as you will likely return to this directory frequently during the course of your project.
+  
+  ### II - Creating Data Subdirectories
+  
+  In order to organize your project's data efficiently, open your command prompt or terminal and navigate to your `EDPredictiveEfficiency` project directory. Once there, run the following command to create the necessary subdirectories for data storage:
+  
+  ```bash
+  mkdir -p data/{features,processed,raw,test,train,validation}
+  ```
+  
+  This will create `features`, `processed`, `raw`, `test`, `train`, and `validation` folders inside a `data` directory.
+  
+  ### III - Downloading and Storing Raw Data
+  Ensure that you are in the root of the `EDPredictiveEfficiency` directory and follow these steps to download the raw dataset:
+  
+  1. Click on the following link to download the `nhamcs14.sas7bdat` dataset file:
+     [Download nhamcs14.sas7bdat](https://drive.google.com/file/d/1oKac8baXPlSrwSH9va_XiSJnswyRRkzg/view?usp=sharing)
+  
+  2. After the download is complete, move the downloaded file into the `data/raw` directory you created earlier.
+  
+  By following these steps, you'll have a well-structured data directory ready for use in your project.
+  
+  
+  
+  ### IV - Install Poetry (optional, if not already installed):
   
   - **Windows:**
   
@@ -54,15 +89,15 @@ To address these questions, we approach each metric with a dual-model strategy, 
     curl -sSL https://install.python-poetry.org | python3 -
     ```
   
-  ### Set up the Project with Poetry:
+  ### V - Set up the Project with Poetry(optional, if not already done):
   
-  Navigate to the cloned project directory (if you are not already there):
+  1. Navigate to the cloned project directory (if you are not already there):
   
   ```bash
-  cd /path/to/EDPredictiveEfficiency
+  cd /path_where_you_cloned_the_project/EDPredictiveEfficiency
   ```
   
-  Then, install the project dependencies using Poetry:
+  2. Install the project dependencies using Poetry:
   
   ```bash
   poetry install
@@ -70,7 +105,7 @@ To address these questions, we approach each metric with a dual-model strategy, 
   
   This will read the `pyproject.toml` file and install all necessary dependencies into a virtual environment specific for this project.
   
-  ### Activate the Poetry Environment:
+  3. Then, activate the poetry environment: 
   
   ```bash
   poetry shell
@@ -78,31 +113,34 @@ To address these questions, we approach each metric with a dual-model strategy, 
   
   This will spawn a new shell subprocess, which is configured to use the created virtual environment.
   
-  ### Run Jupyter Notebook or JupyterLab or viscose:
+  ### VI - Run Notebook with the Pre-configured Kernel
   
   If the project includes Jupyter notebooks, you can start Jupyter Notebook or JupyterLab or Vscode:
+  
+  **for Jupyter Notebook:**
   
   ```bash
   poetry run jupyter notebook
   ```
   
-  Or for JupyterLab:
+  **Or for JupyterLab:**
   
   ```bash
   poetry run jupyter lab
-  
-  for Vscode
-  
-  In the upper right corner of the notebook view, 
-  you'll see the name of the current kernel. It might default to the one VSCode detected.
-  Click on the kernel name and select the kernel that matches your Poetry environment — it should be named after the project, such as "EDPredictiveEfficiency".
   ```
   
+  **Or for Vscode** 
+  
+  When working in a notebook within Visual Studio Code (VSCode), it's important to select the appropriate kernel for your project to ensure that your code runs correctly. Follow these steps to set the kernel to match your Poetry environment:
+  
+  1. Open your project notebook in VSCode.
+  2. Look at the upper right corner of the notebook view to find the name of the current kernel. It might be set to a default kernel that VSCode has detected.
+  3. Click on the current kernel name. A dropdown menu should appear with a list of available kernels.
+  4. From the dropdown menu, select the kernel that corresponds to your Poetry environment. The kernel should have the same name as your project, such as "EDPredictiveEfficiency".
+  
+  By selecting the correct kernel, you ensure that the notebook is able to access all the dependencies and packages specific to your project's environment.
   
   
-  ## Running Notebooks with the Pre-configured Kernel
-  
-  After setting up the environment as outlined above, when you open a Jupyter notebook, you should select the kernel named "EDPredictiveEfficiency" (or whatever name was configured during the setup) from the list of available kernels in Jupyter. This ensures that the notebook runs with the correct environment and dependencies.
   
   ## Additional Libraries
   
@@ -128,7 +166,7 @@ To address these questions, we approach each metric with a dual-model strategy, 
   Make sure you are in the root directory of the cloned project:
   
   ```bash
-  cd /yourpathto/EDPredictiveEfficiency
+  cd /path_where_you_cloned_the_project/EDPredictiveEfficiency
   ```
   
   ### Running Regression Models
@@ -178,7 +216,7 @@ To address these questions, we approach each metric with a dual-model strategy, 
   
   ## Contributing
   
-  We encourage contributions to the `EDPredictiveEfficiency` project. Your contributions can enhance various aspects of the project, such as predictive models, data preprocessing, and insights into emergency department operations. Please take a look at our contribution guidelines for more details.
+  We encourage contributions to the `EDPredictiveEfficiency` project. Your contributions can enhance various aspects of the project, such as predictive models, data preprocessing, and insights into emergency department operations.
   
   ## License
   
