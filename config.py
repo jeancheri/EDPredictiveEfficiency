@@ -6,6 +6,16 @@ import numpy as np
 from joblib import dump, load
 import sys
 
+# Define random seed for reproducibility
+RANDOM_SEED = 42
+
+def set_seed():
+    import random
+    
+    np.random.seed(RANDOM_SEED)
+    random.seed(RANDOM_SEED)
+    os.environ['PYTHONHASHSEED'] = str(RANDOM_SEED)
+
 # Base directory is the current directory where config.py resides
 BASE_DIR = Path(__file__).resolve().parent
 
