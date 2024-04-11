@@ -19,7 +19,7 @@ To address these questions, we approach each metric with a dual-model strategy, 
   - **Classification Model**: Predict if the LOV will fall within a normal range or will be high, utilizing a specific threshold for classification.
   - 
   
-- # Steps to Run the Jupyter Notebooks
+- # Steps to setup and run the Jupyter Notebooks
   
   ## Prerequisites
   
@@ -27,7 +27,7 @@ To address these questions, we approach each metric with a dual-model strategy, 
   - Ensure that Python is installed on your system.
   - Ensure that you have access to the repository https://github.com/jeancheri/EDPredictiveEfficiency.git
   
-  ## Initial Setup
+  ## A) Initial Setup
   
   ### I - Clone the Repository:
   
@@ -153,7 +153,9 @@ To address these questions, we approach each metric with a dual-model strategy, 
   
   By following these steps, you should be able to set up your local environment in a way that mirrors the established configuration , enabling you to run the notebooks as intended. 
   
-- # Usage Instructions
+  
+  
+  # B) Usage Instructions
   
   After setting up the project environment, you can utilize the provided Jupyter notebooks or Python scripts to run the predictive models.
   
@@ -169,18 +171,35 @@ To address these questions, we approach each metric with a dual-model strategy, 
   cd /path_where_you_cloned_the_project/EDPredictiveEfficiency
   ```
   
-  ### Running Regression Models
+  ## Option 1: Single notebook option to Run the Model
   
-  To estimate the wait time duration, perform the following:
+  For a simplified process, you can run the `waittime_regression_modeling.ipynb` notebook, which is the one-step option to execute the complete WAITTIME prediction model. This is an alternative to the below method multiple notebooks option to run the model.
   
-  1. Open the project in Jupyter Notebook, JupyterLab, or Visual Studio Code (VSCode).
-  2. Navigate to the `scripts/model_training` directory.
-  3. Open the `waittime_regression.ipynb` notebook.
-  4. Make sure to select the `EDPredictiveEfficiency` kernel from the kernel menu to ensure the correct environment.
+  ### Steps to Run the Notebook
   
-  ## Getting Started with Model Workflow
+  1. Navigate to the notebook's directory:
+     ```
+     cd path_where_you_cloned_the_project/EDPredictiveEfficiency/notebooks/
+     ```
   
-  The workflow for running the models consists of several stages, each represented by a Jupyter notebook.
+  2. Open the `waittime_regression_modeling.ipynb` notebook using Jupyter Notebook or JupyterLab or Vscode:
+     ```
+     jupyter notebook waittime_regression_modeling.ipynb
+     ```
+     or
+     ```
+     jupyter lab waittime_regression_modeling.ipynb
+     ```
+  
+  3. Run all cells in the notebook from the top to the bottom to execute the complete prediction workflow.
+  
+  Please note that this is the recommended approach if you prefer a one-step process over the multiple-step option.
+  
+  
+  
+  ## OPTION 2: Multiple notebooks and steps option to Run the Model
+  
+  If you prefer the 3 notebooks option, do:
   
   ### Step 1: Model Selection via Cross-Validation
   

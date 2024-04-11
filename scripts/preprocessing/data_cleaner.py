@@ -228,5 +228,3 @@ class DataCleaner:
         # print("Data cleaning completed. Columns: ", self.df.columns.tolist())
         self.df = self.df.copy()
         return self.df
-
-

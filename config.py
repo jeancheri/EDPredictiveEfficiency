@@ -10,21 +10,35 @@ import sys
 RANDOM_SEED = 42
 
 def set_seed():
-    import random
-    
     np.random.seed(RANDOM_SEED)
+    import random
     random.seed(RANDOM_SEED)
     os.environ['PYTHONHASHSEED'] = str(RANDOM_SEED)
 
 # Base directory is the current directory where config.py resides
 BASE_DIR = Path(__file__).resolve().parent
 
-# Add necessary directories to sys.path for easy imports
-sys.path.insert(0, str(BASE_DIR / 'scripts' / 'preprocessing'))
-sys.path.insert(0, str(BASE_DIR / 'scripts' / 'model_training'))
-sys.path.insert(0, str(BASE_DIR / 'scripts' / 'model_hyperparameter_tuning'))
-sys.path.insert(0, str(BASE_DIR / 'scripts' / 'model_evaluation'))
-sys.path.insert(0, str(BASE_DIR / 'notebooks'))
+def adjust_paths():
+    """
+    Adjust sys.path to include directories for scripts and utilities dynamically.
+    This function combines initial path setup with the flexibility of dynamic adjustment.
+    """
+    # Directories to add to sys.path
+    directories_to_add = [
+        'scripts/preprocessing',
+        'scripts/model_training',
+        'scripts/model_hyperparameter_tuning',
+        'scripts/model_evaluation',
+        'notebooks'
+    ]
+
+    for directory in directories_to_add:
+        path_to_add = str(BASE_DIR / directory)
+        if path_to_add not in sys.path:
+            sys.path.insert(0, path_to_add)
+
+# Call adjust_paths to ensure the paths are added when config.py is imported
+adjust_paths()
 
 # Data directories
 DATA_DIR = BASE_DIR / 'data'
@@ -37,6 +51,48 @@ FEATURES_DATA_DIR = DATA_DIR / 'features'
 
 # Models directory
 MODELS_DIR = BASE_DIR / 'models'
+
+
+
+# ------
+# import os
+# from pathlib import Path
+# import pandas as pd
+# import numpy as np
+# from joblib import dump, load
+# import sys
+
+# Define random seed for reproducibility
+# RANDOM_SEED = 42
+
+# def set_seed():
+#     import random
+    
+#     np.random.seed(RANDOM_SEED)
+#     random.seed(RANDOM_SEED)
+#     os.environ['PYTHONHASHSEED'] = str(RANDOM_SEED)
+
+# # Base directory is the current directory where config.py resides
+# BASE_DIR = Path(__file__).resolve().parent
+
+# # Add necessary directories to sys.path for easy imports
+# sys.path.insert(0, str(BASE_DIR / 'scripts' / 'preprocessing'))
+# sys.path.insert(0, str(BASE_DIR / 'scripts' / 'model_training'))
+# sys.path.insert(0, str(BASE_DIR / 'scripts' / 'model_hyperparameter_tuning'))
+# sys.path.insert(0, str(BASE_DIR / 'scripts' / 'model_evaluation'))
+# sys.path.insert(0, str(BASE_DIR / 'notebooks'))
+
+# # Data directories
+# DATA_DIR = BASE_DIR / 'data'
+# RAW_DATA_DIR = DATA_DIR / 'raw'
+# TRAIN_DATA_DIR = DATA_DIR / 'train'
+# VALIDATION_DATA_DIR = DATA_DIR / 'validation'
+# TEST_DATA_DIR = DATA_DIR / 'test'
+# PROCESSED_DATA_DIR = DATA_DIR / 'processed'
+# FEATURES_DATA_DIR = DATA_DIR / 'features'
+
+# # Models directory
+# MODELS_DIR = BASE_DIR / 'models'
 
 # Utility functions for data
 def save_data(df, filename,subdir='',column_names=None):
