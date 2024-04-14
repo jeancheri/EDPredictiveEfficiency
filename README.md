@@ -116,6 +116,25 @@ To address these questions, we approach each metric with a dual-model strategy, 
   ### VI - Run Notebook with the Pre-configured Kernel
   
   For executing code, we recommend using Jupyter Notebook, JupyterLab, or VSCode or any similar tools, as they offer comprehensive support for Jupyter notebooks.
+
+
+#### Install and Configure ipykernel
+
+Ensure that `ipykernel` is installed in your Poetry environment. This is required for using the environment as a Jupyter kernel, enabling support for Jupyter notebooks in tools such as Jupyter Notebook, JupyterLab, or VSCode.
+
+**Add `ipykernel` via Poetry:**
+
+```bash
+poetry add ipykernel
+```
+
+**Register the Kernel:**
+
+```bash
+poetry run python -m ipykernel install --user --name=edpredictiveefficiency
+```
+
+This setup allows the Poetry-managed virtual environment to appear as a selectable kernel, ensuring that notebooks run with the dependencies specified in the project's `pyproject.toml`.  
   
   **for Jupyter Notebook:**
   
