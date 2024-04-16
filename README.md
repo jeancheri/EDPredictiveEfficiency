@@ -2,7 +2,7 @@
 
 ## Introduction
 
-The subject of our proposal is "Predictive Analytics for Optimizing Emergency Department Operations," focusing on using the NHAMCS Emergency Department datasets. We aim to develop predictive models that enhance patient outcomes and operational efficiencies in emergency departments (EDs) by analyzing patient demographics, clinical indicators, and system variables. Our approach utilizes unsupervised learning to discover hidden patterns and clusters, enhancing our predictive models and operational insights through techniques like PCA and K-means clustering. This methodology is anticipated to refine patient segmentation and inform targeted interventions. Our project aims to address two critical questions:
+Have you ever experienced a long WAITTIME at an emergency department? Haven't you experienced an extended visit to the emergency department? We suspect you might come away frustrated. Emergency departments know this problem and would have optimized their resources to cope with long waiting and visit times. For this reason, we propose to create predictive analyses to optimize emergency operations. This "Predictive Analytics for Optimizing Emergency Department Operations," uses the NHAMCS Emergency Department datasets. We aim to develop predictive models that enhance patient outcomes and operational efficiencies in emergency departments (EDs) by analyzing patient demographics, clinical indicators, and system variables. Our approach consists of creating four models using supervised learning techniques and a model based on unsupervised learning. We, therefore, propose to answer the following questions:
 
 1. **How effectively can we forecast ED WAITTIME** to better manage patient flow and optimize resource allocation?
 2.  **Can we predict the length of visit (LOV)** for patients in the ED using your demographic information, clinical assessments, and initial operational metrics?
@@ -225,7 +225,7 @@ This setup allows the Poetry-managed virtual environment to appear as a selectab
   Navigate to the following notebook to begin model selection through cross-validation:
   
   ```plaintext
-  /path_where_you_cloned_the_project/EDPredictiveEfficiency/scripts/model_training/waittime_regression.ipynb
+  /path_where_you_cloned_the_project/EDPredictiveEfficiency/scripts/models_training_and_selection/waittime_regression.ipynb
   ```
   
   Run all the cells in the notebook to perform the cross-validation process.
@@ -235,7 +235,7 @@ This setup allows the Poetry-managed virtual environment to appear as a selectab
   After selecting the best model, proceed with hyperparameter tuning using the following notebook:
   
   ```plaintext
-  /path_where_you_cloned_the_project/EDPredictiveEfficiency/scripts/model_hyperparameter_tuning/waittime_regression_hyperparameter_tuning.ipynb
+  /path_where_you_cloned_the_project/EDPredictiveEfficiency/scripts/models_tuning_and_evaluation/waittime_regression_hyperparameter_tuning.ipynb
   ```
   
   Please make sure to execute the notebook cells to fine-tune and train the model.
@@ -245,7 +245,7 @@ This setup allows the Poetry-managed virtual environment to appear as a selectab
   Evaluate the trained model's performance using the following evaluation notebook:
   
   ```plaintext
-  /path_where_you_cloned_the_project/EDPredictiveEfficiency/scripts/model_evaluation/waittime_regression_final_evaluation.ipynb
+  /path_where_you_cloned_the_project/EDPredictiveEfficiency/scripts/models_testing/waittime_regression_final_evaluation.ipynb
   ```
   
   This notebook provides a detailed evaluation of a test dataset, offering insights into the model's accuracy and feature importance.
