@@ -108,8 +108,20 @@ class DataPreprocessingPipeline:
     def run(self):
         print("1-Cleaning data...")
         self.run_clean_data()
+        if self._cleaned_emergency_df.empty:
+            raise ValueError("No data left after cleaning; please check cleaning methods.")
+        print("Cleaned data size:", self._cleaned_emergency_df.shape)
+        
         print("2-Applying feature engineering...")
         self.run_feature_engineering()
+        if self._transformed_emergency_df.empty:
+            raise ValueError("No data left after feature engineering; please check feature engineering methods.")
+        print("Feature-engineered data size:", self._transformed_emergency_df.shape)
+        
+        # print("1-Cleaning data...")
+        # self.run_clean_data()
+        # print("2-Applying feature engineering...")
+        # self.run_feature_engineering()
         print("3-Splitting data...")
         self.run_split_data()
         print("4-Loading data...")

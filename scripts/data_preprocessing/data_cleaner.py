@@ -14,6 +14,12 @@ class DataCleaner:
         for col in self.df.select_dtypes(include=[np.number]).columns:
             if (self.df[col] % 1 == 0).all():
                 self.df[col] = self.df[col].astype(np.int64)
+
+    def transform_stay24(self):
+        """
+        Transforms the 'STAY24' column to 1 if the value is 2.0, otherwise to 0.
+        """
+        self.df['STAY24'] = self.df['STAY24'].apply(lambda x: 1 if x == 2 else 0)
                 
     def _target_to_drop(self):
         if self.target_to_drop:
@@ -23,14 +29,31 @@ class DataCleaner:
         for col in self.df.select_dtypes(include=['object']).columns:
             self.df[col] = self.df[col].apply(lambda x: x.decode('utf-8') if isinstance(x, bytes) else x)
 
-    def drop_records_with_negative_values(self):
+    def drop_records_with_negative_values_for_target_variables(self):
         """
-        Drops all records that have negative values in any numeric column.
+        Drops all records that have negative values in any numeric column for the target variables.
+        """
+        target_variables = ['LOV', 'WAITTIME']
+        # Filter the DataFrame: Keep rows where all target variables have non-negative values
+        self.df = self.df[(self.df[target_variables] >= 0).all(axis=1)]
+
+    def replace_negatives_with_nan(self):
+        """
+        Replace all negative values in the DataFrame with NaN.
+        
+        Parameters:
+        - df (pd.DataFrame): The DataFrame to process.
+        
+        Returns:
+        - pd.DataFrame: A new DataFrame with negative values replaced by NaN.
         """
         numeric_cols = self.df.select_dtypes(include=[np.number]).columns
-        # Loop through each numeric column and drop rows with negative values
+
+        # Replace negative values with NaN in all numeric columns
         for col in numeric_cols:
-            self.df = self.df[self.df[col] >= 0]
+            self.df[col] = np.where(self.df[col] < 0, np.nan, self.df[col])
+   
+
 
     def _remove_outliers(self):
         if self.target is not None and self.target in self.df.columns:
@@ -207,22 +230,22 @@ class DataCleaner:
         return match.group(0) if match else np.nan
 
     def clean_data(self):
-        # self._filter_hospcode_with_binary_outcomes()
-        # self.drop_records_with_negative_values()
+        self._filter_hospcode_with_binary_outcomes()
+        self.drop_records_with_negative_values_for_target_variables()
+        self.replace_negatives_with_nan()
         self._target_to_drop()
         self._convert_problematic_strings()
         self.drop_columns_by_pattern()
         self._convert_mixed_columns_to_str()
         self._remove_trailing_zeros()
+        self.transform_stay24()
         self._convert_bytes_to_strings()
         self._remove_outliers()
-        self._remove_outliers_for_all_numerical
         self._drop_columns_with_only_missing_values()
         self._fill_nans()
         self._combine_rx_columns()
         self.force_numeric_conversion()
-        # self.drop_weak_correlations()
-        # self._filter_by_hospcode([31, 91, 101, 116, 149, 153, 154, 217, 233, 243])
+        self._filter_by_hospcode([31, 91, 101, 116, 149, 153, 154, 217, 233, 243])
     
         # Comment out or remove the next line to stop printing the columns
         # print("Data cleaning completed. Columns: ", self.df.columns.tolist())
