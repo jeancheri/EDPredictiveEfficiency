@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Have you ever experienced a long WAITTIME at an emergency department? Haven't you experienced an extended visit to the emergency department? We suspect you might come away frustrated. Emergency departments know this problem and would have optimized their resources to cope with long waiting and visit times. For this reason, we propose to create predictive analyses to optimize emergency operations. This "Predictive Analytics for Optimizing Emergency Department Operations," uses the NHAMCS Emergency Department datasets. We aim to develop predictive models that enhance patient outcomes and operational efficiencies in emergency departments (EDs) by analyzing patient demographics, clinical indicators, and system variables. Our approach consists of creating four models using supervised learning techniques and a model based on unsupervised learning. We, therefore, propose to answer the following questions:
+Have you ever experienced a long WAITTIME at an emergency department? Haven't you experienced an extended visit to the emergency department? We suspect you might come away frustrated  😤 or even angry 😠. Emergency departments know this problem and would have optimized their resources to cope with long waiting and visit times. For this reason, we propose to create predictive analyses to optimize emergency operations. This "Predictive Analytics for Optimizing Emergency Department Operations," uses the NHAMCS Emergency Department datasets. We aim to develop predictive models that enhance patient outcomes, leading to happy patients 😄, and optimize operational efficiencies in emergency departments (EDs) 😌. This,our approach consists of creating four models using supervised learning techniques and a model based on unsupervised learning. We, therefore, propose to answer the following questions:
 
 1. **How effectively can we forecast ED WAITTIME** to better manage patient flow and optimize resource allocation?
 2.  **Can we predict the length of visit (LOV)** for patients in the ED using your demographic information, clinical assessments, and initial operational metrics?
@@ -135,67 +135,67 @@ poetry run python -m ipykernel install --user --name=edpredictiveefficiency
 ```
 
 This setup allows the Poetry-managed virtual environment to appear as a selectable kernel, ensuring that notebooks run with the dependencies specified in the project's `pyproject.toml`.  
-  
+
   **for Jupyter Notebook:**
-  
+
   ```bash
   poetry run jupyter notebook
   ```
-  
+
   **Or for JupyterLab:**
-  
+
   ```bash
   poetry run jupyter lab
   ```
-  
+
   **Or for Vscode** 
-  
+
   When working in a notebook within Visual Studio Code (VSCode), it's important to select the appropriate kernel for your project to ensure that your code runs correctly. Follow these steps to set the kernel to match your Poetry environment:
-  
+
   1. Open your project notebook in VSCode.
   2. Look at the upper right corner of the notebook view to find the name of the current kernel. It might be set to a default kernel that VSCode has detected.
   3. Click on the current kernel name. A dropdown menu should appear with a list of available kernels.
   4. From the dropdown menu, select the kernel that corresponds to your Poetry environment. The kernel should have the same name as your project, such as "EDPredictiveEfficiency".
-  
+
   By selecting the correct kernel, you ensure that the notebook is able to access all the dependencies and packages specific to your project's environment.
+
   
-  
-  
+
   ## Additional Libraries
-  
+
   For additional libraries using Poetry and updated the `pyproject.toml` file, you should pull the latest changes from the repository and run `poetry install` again to ensure your environment is up to date:
-  
+
   ```bash
   git pull
   poetry install
   ```
-  
+
   By following these steps, you should be able to set up your local environment in a way that mirrors the established configuration , enabling you to run the notebooks as intended. 
+
   
-  
-  
+
   # B) Usage Instructions
-  
+
   After setting up the project environment, you can utilize the provided Jupyter notebooks or Python scripts to run the predictive models.
-  
+
   ## Running the Predictive Models
-  
+
   To begin executing the models to predict wait times in the emergency department, follow the steps below:
-  
+
   ### Accessing the Files
-  
+
   Make sure you are in the root directory of the cloned project:
-  
+
   ```bash
   cd /path_where_you_cloned_the_project/EDPredictiveEfficiency
   ```
-  
+
   ## Option 1: Single notebook option to Run the Model
-  
+
   For a simplified process, you can run the `waittime_regression_modeling.ipynb` notebook, which is the one-step option to execute the complete WAITTIME prediction model. This is an alternative to the below method multiple notebooks option to run the model.
-  
+
   ### Steps to Run the Notebook
-  
+
   1. Navigate to the notebook's directory:
      ```
      cd path_where_you_cloned_the_project/EDPredictiveEfficiency/notebooks/
@@ -211,51 +211,54 @@ This setup allows the Poetry-managed virtual environment to appear as a selectab
      ```
   
   3. Run all cells in the notebook from the top to the bottom to execute the complete prediction workflow.
-  
+
   Please note that this is the recommended approach if you prefer a one-step process over the multiple-step option.
+
   
-  
-  
+
   ## OPTION 2: Multiple notebooks and steps option to Run the Model
-  
+
   If you prefer the 3 notebooks option, do:
-  
+
   ### Step 1: Model Selection via Cross-Validation
-  
+
   Navigate to the following notebook to begin model selection through cross-validation:
-  
+
   ```plaintext
   /path_where_you_cloned_the_project/EDPredictiveEfficiency/scripts/models_training_and_selection/waittime_regression.ipynb
   ```
-  
+
   Run all the cells in the notebook to perform the cross-validation process.
-  
+
   ### Step 2: Model Training with Hyperparameter Tuning
-  
+
   After selecting the best model, proceed with hyperparameter tuning using the following notebook:
-  
+
   ```plaintext
   /path_where_you_cloned_the_project/EDPredictiveEfficiency/scripts/models_tuning_and_evaluation/waittime_regression_hyperparameter_tuning.ipynb
   ```
-  
+
   Please make sure to execute the notebook cells to fine-tune and train the model.
-  
+
   ### Step 3: Model Evaluation
-  
+
   Evaluate the trained model's performance using the following evaluation notebook:
-  
+
   ```plaintext
   /path_where_you_cloned_the_project/EDPredictiveEfficiency/scripts/models_testing/waittime_regression_final_evaluation.ipynb
   ```
-  
+
   This notebook provides a detailed evaluation of a test dataset, offering insights into the model's accuracy and feature importance.
+
   
-  
-  
+
   ## Contributing
-  
+  ```plaintext
+  Jean Applys Cherizol, Email: jeancherizol@gmail.com, Github: https://github.com/jeancheri
+  Junior Zephir,        Email: zephirjunior@gmail.com, Github: https://github.com/junzephir
+  ```
   We encourage contributions to the `EDPredictiveEfficiency` project. Your contributions can enhance various aspects of the project, such as predictive models, data preprocessing, and insights into emergency department operations.
-  
+
   ## License
-  
+
   This project is licensed under the MIT license. The LICENSE file provides more details on your rights and limitations under this license.
