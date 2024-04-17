@@ -1,7 +1,6 @@
 import numpy as np
 import pandas as pd
 import config 
-import joblib
 from data_cleaner import DataCleaner
 from data_splitter import DataSplit
 from data_transformation import DataProcessor
@@ -23,9 +22,11 @@ class DataPreprocessingPipeline:
         # Placeholder for processed data
         self._cleaned_emergency_df = None
         self._transformed_emergency_df = None
+        self._train_df = None
         self._X_train = None
         self._validation_df = pd.DataFrame()
         self._X_validation = pd.DataFrame()
+        self._test_df = None
         self._X_test = None
         self._y_train = None
         self._y_validation = pd.Series(dtype='float')
@@ -108,20 +109,8 @@ class DataPreprocessingPipeline:
     def run(self):
         print("1-Cleaning data...")
         self.run_clean_data()
-        if self._cleaned_emergency_df.empty:
-            raise ValueError("No data left after cleaning; please check cleaning methods.")
-        print("Cleaned data size:", self._cleaned_emergency_df.shape)
-        
         print("2-Applying feature engineering...")
         self.run_feature_engineering()
-        if self._transformed_emergency_df.empty:
-            raise ValueError("No data left after feature engineering; please check feature engineering methods.")
-        print("Feature-engineered data size:", self._transformed_emergency_df.shape)
-        
-        # print("1-Cleaning data...")
-        # self.run_clean_data()
-        # print("2-Applying feature engineering...")
-        # self.run_feature_engineering()
         print("3-Splitting data...")
         self.run_split_data()
         print("4-Loading data...")
@@ -137,7 +126,7 @@ class DataPreprocessingPipeline:
             # Assuming 'self._processor' is your data processor object
             processor_name = 'data_processor.joblib'
             config.save_model(self._processor, processor_name)
-            print(f"Processor saved successfully")       
+            print("Processor saved successfully")       
         else:
             print("Processor not initialized.")
 
@@ -230,3 +219,15 @@ class DataPreprocessingPipeline:
     @processor.setter
     def processor(self, value):
         self._processor = value
+
+    @property
+    def train_df(self):
+        return self._train_df
+
+    @property
+    def validation_df(self):
+        return self._validation_df
+
+    @property
+    def test_df(self):
+        return self._test_df
