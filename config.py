@@ -25,10 +25,10 @@ def adjust_paths():
     """
     # Directories to add to sys.path
     directories_to_add = [
-        'scripts/preprocessing',
-        'scripts/model_training',
-        'scripts/model_hyperparameter_tuning',
-        'scripts/model_evaluation',
+        'scripts/data_preprocessing',
+        'scripts/models_training_and_selection',
+        'scripts/models_tuning_and_evaluation',
+        'scripts/models_testing',
         'notebooks'
     ]
 

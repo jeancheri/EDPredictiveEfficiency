@@ -6,24 +6,44 @@ class FeatureEngineering:
     def __init__(self, df):
         self.df = df
 
+    # def _add_arrtime_features(self):
+    #     """Splits ARRTIME into separate columns for hour and minute, and maps hour to part of the day."""
+    #     if 'ARRTIME' in self.df.columns:
+    #         # Handle NaN values and ensure zero-padding
+    #         arrtime_str = self.df['ARRTIME'].apply(lambda x: f'{int(x):04}' if pd.notnull(x) else '0000')
+            
+    #         # Extract hour and minute from ARRTIME
+    #         arrtime_in_hour = arrtime_str.str[:2].astype(int)
+    #         arrtime_in_mn = arrtime_str.str[2:].astype(int)
+    #         arrtime_part_of_day = arrtime_in_hour.apply(self._convert_hour_to_part_of_day)
+            
+    #         # Assign new columns to the DataFrame
+    #         self.df['ARRTIME_IN_HOUR'] = arrtime_in_hour
+    #         # self.df['ARRTIME_IN_MN'] = arrtime_in_mn
+    #         self.df['ARRTIME_PART_OF_DAY'] = arrtime_part_of_day
+            
+    #         # Optionally, drop the original ARRTIME column if no longer needed
+    #         self.df.drop('ARRTIME', axis=1, inplace=True)
+
     def _add_arrtime_features(self):
         """Splits ARRTIME into separate columns for hour and minute, and maps hour to part of the day."""
         if 'ARRTIME' in self.df.columns:
-            # Handle NaN values and ensure zero-padding
-            arrtime_str = self.df['ARRTIME'].apply(lambda x: f'{int(x):04}' if pd.notnull(x) else '0000')
-            
+            # Ensure the column is treated as string and zero-padded to 4 characters
+            arrtime_str = self.df['ARRTIME'].fillna(0).astype(int).astype(str).str.zfill(4)
+
             # Extract hour and minute from ARRTIME
             arrtime_in_hour = arrtime_str.str[:2].astype(int)
             arrtime_in_mn = arrtime_str.str[2:].astype(int)
             arrtime_part_of_day = arrtime_in_hour.apply(self._convert_hour_to_part_of_day)
-            
+
             # Assign new columns to the DataFrame
             self.df['ARRTIME_IN_HOUR'] = arrtime_in_hour
-            # self.df['ARRTIME_IN_MN'] = arrtime_in_mn
+            self.df['ARRTIME_IN_MN'] = arrtime_in_mn
             self.df['ARRTIME_PART_OF_DAY'] = arrtime_part_of_day
-            
+
             # Optionally, drop the original ARRTIME column if no longer needed
             self.df.drop('ARRTIME', axis=1, inplace=True)
+
 
     def _add_temporal_and_interaction_features(self):
         """Apply transformations to capture temporal aspects and interactions."""
