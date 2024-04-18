@@ -96,11 +96,23 @@ class DataPreprocessingPipeline:
         self.feature_names = self._processor.get_feature_names_out()
 
         # Save the preprocessed datasets
-        config.save_data(self.X_train_preprocessed, f"X_train_preprocessed_regression_{self._target}.csv", 'processed')
-        if self.percent_val > 0:
-            config.save_data(self.X_validation_preprocessed, f"X_validation_preprocessed_regression_{self._target}.csv", 'processed')
-        config.save_data(self.X_test_preprocessed, f"X_test_preprocessed_regression_{self._target}.csv", 'processed')
 
+        if self._target in ["WAITTIME","LOV"]:
+                    config.save_data(self.X_train_preprocessed, f"X_train_preprocessed_regression_{self._target}.csv", 'processed')
+                    if self.percent_val > 0:
+                        config.save_data(self.X_validation_preprocessed, f"X_validation_preprocessed_regression_{self._target}.csv", 'processed')
+                    config.save_data(self.X_test_preprocessed, f"X_test_preprocessed_regression_{self._target}.csv", 'processed')
+
+        
+
+                 
+        if self._target in ["WAITTIME_BINARY","LOV_BINARY"]:
+                    config.save_data(self.X_train_preprocessed, f"X_train_preprocessed_classification_{self._target}.csv", 'processed')
+                    if self.percent_val > 0:
+                        config.save_data(self.X_validation_preprocessed, f"X_validation_preprocessed_classification_{self._target}.csv", 'processed')
+                    config.save_data(self.X_test_preprocessed, f"X_test_preprocessed_classification_{self._target}.csv", 'processed')
+
+        
         # Save features  
         config.save_data(self.feature_names, f"features_{self._target}.csv", 'features')
 

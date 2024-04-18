@@ -21,6 +21,8 @@ class DataCleaner:
         self.df = df.copy(deep=True)
         self.target = target
         self.target_to_drop = target_to_drop
+        self.WAITTIME_BINARY = None
+        self.LOV_BINARY = None
         if create_binary:
             self._create_binary_targets()
 
@@ -247,8 +249,12 @@ class DataCleaner:
 
         if 'WAITTIME' in self.df.columns:
             self.df['WAITTIME_BINARY'] = (self.df['WAITTIME'] > 30).astype(int)  # Assuming 30 as a threshold for binary classification
+            # Ensure the column is of integer type
+            self.df['WAITTIME_BINARY'] = self.df['WAITTIME_BINARY'].astype(int)
         if 'LOV' in self.df.columns:
             self.df['LOV_BINARY'] = (self.df['LOV'] > 120).astype(int)  # Assuming 120 as a threshold for binary classification
+            self.df['LOV_BINARY'] = self.df['LOV_BINARY'].astype(int)
+        return self.df
 
 
 # End of class DataCleaner
