@@ -19,7 +19,6 @@ To address these questions, we approach each metric with a dual-model strategy, 
   
   - **Classification Model**: Predict if the LOV will fall within a normal range or will be high, utilizing a specific threshold for classification.
   
-    ![confusion_matrix](docs/confusion_matrix.png)
   
 - # Steps to setup and run the Jupyter Notebooks
   
