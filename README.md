@@ -16,8 +16,10 @@ To address these questions, we approach each metric with a dual-model strategy, 
 - **LOV Prediction**:
   
   - **Regression Model**: Estimate the duration of LOV in minutes.
+  
   - **Classification Model**: Predict if the LOV will fall within a normal range or will be high, utilizing a specific threshold for classification.
-  - 
+  
+    ![img](/Users/jeancherizol/Documents/Confusion Matrix.png)
   
 - # Steps to setup and run the Jupyter Notebooks
   
