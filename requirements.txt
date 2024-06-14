@@ -1,3 +1,4 @@
+# Core dependencies
 catboost
 imblearn.ensemble
 imblearn.over_sampling
