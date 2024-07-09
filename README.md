@@ -2,22 +2,19 @@
 
 ## Introduction
 
-Have you ever experienced a long WAITTIME at an emergency department? Haven't you experienced an extended visit to the emergency department? We suspect you might come away frustrated  😤 or even angry 😠. Emergency departments know this problem and would have optimized their resources to cope with long waiting and visit times. For this reason, we propose to create predictive analyses to optimize emergency operations. This "Predictive Analytics for Optimizing Emergency Department Operations," uses the NHAMCS Emergency Department datasets. We aim to develop predictive models that enhance patient outcomes, leading to happy patients 😄, and optimize operational efficiencies in emergency departments (EDs) 😌. This,our approach consists of creating four models using supervised learning techniques and a model based on unsupervised learning. We, therefore, propose to answer the following questions:
+Have you ever experienced a long wait time at an emergency department? If so, you likely faced inevitable frustration. Emergency departments are aware of this ongoing problem and often seek to optimize their resources to help patients cope with long waiting and visit times. To further improve these operations, we propose the project "Predictive Analytics for Optimizing Emergency Department Operations," leveraging the NHAMCS Emergency Department datasets. Our goal is to develop predictive models that enhance patient outcomes, leading to satisfied patients and optimized operational efficiencies in emergency departments (EDs).
 
-1. **How effectively can we forecast ED WAITTIME** to better manage patient flow and optimize resource allocation?
-2.  **Can we predict the length of visit (LOV)** for patients in the ED using your demographic information, clinical assessments, and initial operational metrics?
+In this project, we utilize supervised learning techniques to create four predictive models aimed at answering the following questions:
 
-To address these questions, we approach each metric with a dual-model strategy, incorporating both regression and classification methodologies to provide comprehensive insights:
+WAITTIME Prediction:
 
-- **WAITTIME Prediction**:
-  - **Regression Model**: Predict the duration of WAITTIME in minutes.
-  - **Classification Model**: Determine if the WAITTIME will be within a normal range or will be considered high based on a predefined threshold.
-  
-- **LOV Prediction**:
-  
-  - **Regression Model**: Estimate the duration of LOV in minutes.
-  
-  - **Classification Model**: Predict if the LOV will fall within a normal range or will be high, utilizing a specific threshold for classification.
+Regression Model: Can we effectively forecast ED wait times in minutes to better manage patient flow and optimize resource allocation?
+Classification Model: Can we predict whether the ED wait time will be within a normal range (<= 30 minutes) or high (> 30 minutes) based on a predefined threshold?
+Length of Visit (LOV) Prediction:
+
+Regression Model: Can we estimate the duration of the ED visit in minutes using patient demographic information, clinical assessments, and initial operational metrics?
+Classification Model: Can we predict if the LOV will fall within a normal range (<= 120 minutes) or will be high (> 120 minutes) using a specific threshold for classification?
+By integrating both regression and classification methodologies, we aim to provide comprehensive insights and actionable recommendations for improving ED operations, ultimately contributing to a more efficient and patient-friendly healthcare system.
   
   
 - # Steps to setup and run the Jupyter Notebooks
