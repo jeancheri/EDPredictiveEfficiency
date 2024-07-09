@@ -6,14 +6,15 @@ Have you ever experienced a long wait time at an emergency department? If so, yo
 
 In this project, we utilize supervised learning techniques to create four predictive models aimed at answering the following questions:
 
-WAITTIME Prediction:
+### 1- Regression Model: Can we effectively forecast ED wait times in minutes to better manage patient flow and optimize resource allocation?
 
-Regression Model: Can we effectively forecast ED wait times in minutes to better manage patient flow and optimize resource allocation?
-Classification Model: Can we predict whether the ED wait time will be within a normal range (<= 30 minutes) or high (> 30 minutes) based on a predefined threshold?
+### 2- Can we predict whether the ED wait time will be within a normal range (<= 30 minutes) or high (> 30 minutes) based on a predefined threshold?
 Length of Visit (LOV) Prediction:
 
-Regression Model: Can we estimate the duration of the ED visit in minutes using patient demographic information, clinical assessments, and initial operational metrics?
-Classification Model: Can we predict if the LOV will fall within a normal range (<= 120 minutes) or will be high (> 120 minutes) using a specific threshold for classification?
+### 3-Can we estimate the duration of the ED visit in minutes using patient demographic information, clinical assessments, and initial operational metrics?
+
+### 4- Can we predict if the LOV will fall within a normal range (<= 120 minutes) or will be high (> 120 minutes) using a specific threshold for classification?
+
 By integrating both regression and classification methodologies, we aim to provide comprehensive insights and actionable recommendations for improving ED operations, ultimately contributing to a more efficient and patient-friendly healthcare system.
   
   
